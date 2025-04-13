@@ -48,6 +48,7 @@
 		"vitest": "^3.0.0"
 	},
 	"dependencies": {
+		"carbon-components-svelte": "^0.88.4",
 		"drizzle-orm": "^0.40.0",
 		"postgres": "^3.4.5"
 	}
