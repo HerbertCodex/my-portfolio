@@ -1,10 +1,11 @@
+import { sveltekit } from '@sveltejs/kit/vite';
 import tailwindcss from '@tailwindcss/vite';
 import { svelteTesting } from '@testing-library/svelte/vite';
-import { sveltekit } from '@sveltejs/kit/vite';
+import { optimizeCss } from 'carbon-preprocess-svelte';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-	plugins: [tailwindcss(), sveltekit()],
+	plugins: [tailwindcss(), sveltekit(), optimizeCss()],
 	test: {
 		workspace: [
 			{

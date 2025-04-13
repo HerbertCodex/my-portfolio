@@ -30,6 +30,7 @@
 		"@tailwindcss/vite": "^4.0.0",
 		"@testing-library/jest-dom": "^6.6.3",
 		"@testing-library/svelte": "^5.2.4",
+		"carbon-preprocess-svelte": "^0.11.11",
 		"drizzle-kit": "^0.30.2",
 		"eslint": "^9.18.0",
 		"eslint-config-prettier": "^10.0.1",
@@ -49,6 +50,7 @@
 	},
 	"dependencies": {
 		"carbon-components-svelte": "^0.88.4",
+		"carbon-icons-svelte": "^13.3.0",
 		"drizzle-orm": "^0.40.0",
 		"postgres": "^3.4.5"
 	}
