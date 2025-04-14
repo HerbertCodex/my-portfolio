@@ -3,8 +3,6 @@ import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { optimizeImports } from 'carbon-preprocess-svelte';
 
-const base = process.env.BASE_PATH || '';
-
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: [vitePreprocess(), optimizeImports()],
@@ -16,7 +14,7 @@ const config = {
 			precompress: false
 		}),
 		paths: {
-			base
+			base: process.env.NODE_ENV === 'production' ? `/${process.env.npm_package_name}` : ''
 		}
 	}
 };

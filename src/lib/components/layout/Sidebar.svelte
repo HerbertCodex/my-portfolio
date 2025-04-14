@@ -20,11 +20,11 @@
 
 		<!-- Social icons -->
 		<div class="socials">
-			<a href="#"><LogoFacebook /></a>
-			<a href="#"><LogoTwitter /></a>
-			<a href="#"><LogoLinkedin /></a>
-			<a href="#"><LogoYoutube /></a>
-			<a href="#"><LogoInstagram /></a>
+			<a href="https://www.linkedin.com/in/donatien-koffi/"><LogoFacebook /></a>
+			<a href="https://www.linkedin.com/in/donatien-koffi/"><LogoTwitter /></a>
+			<a href="https://www.linkedin.com/in/donatien-koffi/"><LogoLinkedin /></a>
+			<a href="https://www.linkedin.com/in/donatien-koffi/"><LogoYoutube /></a>
+			<a href="https://www.linkedin.com/in/donatien-koffi/"><LogoInstagram /></a>
 		</div>
 
 		<!-- Infos personnelles -->
