@@ -1,7 +1,10 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { optimizeImports } from 'carbon-preprocess-svelte';
+
+const dev = process.env.NODE_ENV === 'development';
+const base = dev ? '' : `/${process.env.npm_package_name}`;
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -10,11 +13,13 @@ const config = {
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			fallback: null,
-			precompress: false
+			fallback: null
 		}),
 		paths: {
-			base: process.env.NODE_ENV === 'production' ? `/${process.env.npm_package_name}` : ''
+			base
+		},
+		prerender: {
+			handleHttpError: 'warn'
 		}
 	}
 };
