@@ -4,7 +4,12 @@ import { svelteTesting } from '@testing-library/svelte/vite';
 import { optimizeCss } from 'carbon-preprocess-svelte';
 import { defineConfig } from 'vite';
 
+// Ajout de base dynamiquement selon l’environnement
+const dev = process.env.NODE_ENV === 'development';
+const base = dev ? '' : `/${process.env.npm_package_name}`;
+
 export default defineConfig({
+	base,
 	plugins: [tailwindcss(), sveltekit(), optimizeCss()],
 	test: {
 		workspace: [
