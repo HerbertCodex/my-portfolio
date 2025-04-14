@@ -1,7 +1,16 @@
-<script>
-	export let label = 'HTML';
-	export let value = 80; // % entre 0 et 100
-	export let color = '#f59e0b'; // facultatif
+<script lang="ts">
+	import { onMount } from 'svelte';
+
+	export let label: string;
+	export let value: number;
+	export let color: string = '#f59e0b';
+	let animatedWidth: number;
+
+	onMount(() => {
+		requestAnimationFrame(() => {
+			animatedWidth = value;
+		});
+	});
 </script>
 
 <div class="progress-bar">
@@ -10,7 +19,7 @@
 		<span class="value">{value}%</span>
 	</div>
 	<div class="track">
-		<div class="fill" style="width: {value}%; background-color: {color};"></div>
+		<div class="fill" style="width: {animatedWidth}%; background-color: {color};"></div>
 	</div>
 </div>
 
@@ -36,7 +45,7 @@
 
 	.fill {
 		height: 100%;
-		transition: width 0.5s ease-in-out;
+		transition: width 0.8s cubic-bezier(0.65, 0, 0.35, 1);
 		border-radius: 9999px;
 	}
 </style>

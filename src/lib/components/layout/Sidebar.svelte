@@ -29,8 +29,8 @@
 
 		<!-- Infos personnelles -->
 		<div class="info-box">
-			<ProfileInfo label="Age" value="24" />
-			<ProfileInfo label="Residence" value="BD" />
+			<ProfileInfo label="Mobilité" value="Toute la France" />
+			<ProfileInfo label="Residence" value="Rennes" />
 			<ProfileInfo label="Freelance" value="Available" highlight={true} />
 			<ProfileInfo label="Address" value="Dhaka, Bangladesh" />
 		</div>
@@ -38,9 +38,8 @@
 		<!-- Langues -->
 		<div class="section">
 			<h4>Languages</h4>
-			<ProgressBar label="Bangla" value={100} />
-			<ProgressBar label="English" value={80} />
-			<ProgressBar label="Spanish" value={60} />
+			<ProgressBar label="Français" value={100} />
+			<ProgressBar label="Anglais" value={40} />
 		</div>
 
 		<!-- Skills -->
@@ -74,7 +73,7 @@
 		width: 270px;
 		background: #ffffff;
 		border-right: 3px solid #f59e0b;
-		height: 100vh;
+		height: 100dvh;
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -83,16 +82,20 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		overflow-y: auto;
 		transition: all 0.3s ease;
+		scrollbar-gutter: stable;
+		scrollbar-width: thin;
+		scrollbar-color: #f59e0b transparent;
+		scroll-behavior: smooth;
 	}
 
 	.sidebar-inner {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		max-width: 100%;
+		flex-grow: 1;
+		justify-content: flex-start;
 	}
 
 	.profile-img {
@@ -113,7 +116,6 @@
 
 	.socials a {
 		display: flex;
-		align-items: center;
 		justify-content: center;
 		background: #f59e0b;
 		padding: 8px;
@@ -141,7 +143,24 @@
 		color: #1f2937;
 	}
 
-	/* ✅ RESPONSIVE FIX */
+	.sidebar::-webkit-scrollbar {
+		width: 3px;
+	}
+
+	.sidebar::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.sidebar::-webkit-scrollbar-thumb {
+		background-color: #f59e0b;
+		border-radius: 4px;
+		transition: background-color 0.3s ease;
+	}
+
+	.sidebar::-webkit-scrollbar-thumb:hover {
+		background-color: #d97706;
+	}
+
 	@media (max-width: 1024px) {
 		.sidebar {
 			position: relative;

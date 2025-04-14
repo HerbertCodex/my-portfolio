@@ -1,7 +1,7 @@
-<script>
-	export let label = '';
-	export let value = '';
-	export let highlight = false; // ex: pour Available
+<script lang="ts">
+	export let label: string;
+	export let value: string;
+	export let highlight: boolean = false;
 </script>
 
 <div class="info-line">
@@ -26,11 +26,10 @@
 		font-weight: 600;
 		min-width: 90px;
 		display: inline-block;
-		margin-right: 6px;
 	}
 
 	.value {
-		color: #4b5563;
+		color: rgb(0, 0, 0);
 	}
 
 	.value.highlight {

@@ -1,6 +1,6 @@
-<script>
-	export let label = 'Webpack, Gulp';
-	export let icon = '🧩';
+<script lang="ts">
+	export let label: string;
+	export let icon: string;
 </script>
 
 <div class="extra-skill">

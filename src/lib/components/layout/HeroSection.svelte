@@ -1,12 +1,11 @@
-<script>
+<script lang="ts">
 	import { Column, Grid, Row } from 'carbon-components-svelte';
 	import DownloadButton from '../ui/Button.svelte';
 
-	export let name = 'RAYAN ADLARD';
-	export let title = 'FRONT-END DEVELOPER';
-	export let description =
-		'Lorem ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Et, Volutpat Feugiat Placerat Lobortis. Natoque Rutrum Semper Sed Suspendisse Nunc Lectus.';
-	export let imageUrl = 'https://via.placeholder.com/300x400';
+	export let name: string;
+	export let title: string;
+	export let description: string;
+	export let imageUrl: string = 'https://via.placeholder.com/300x400';
 </script>
 
 <section class="hero-section">
@@ -15,10 +14,10 @@
 			<Row>
 				<Column sm={4} md={4} lg={6}>
 					<div class="text-content">
-						<h1 class="name">I’M {name}</h1>
+						<h1 class="name">{name}</h1>
 						<h2 class="title">{title}</h2>
 						<p class="description">{description}</p>
-						<DownloadButton label="HIRE ME" />
+						<DownloadButton label="HIRE ME" href="#" />
 					</div>
 				</Column>
 				<Column sm={4} md={4} lg={6}>

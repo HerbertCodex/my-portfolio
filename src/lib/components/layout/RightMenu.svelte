@@ -1,6 +1,8 @@
 <script>
 	import { Button } from 'carbon-components-svelte';
-	import { Email, Folder, Home, Menu, User } from 'carbon-icons-svelte';
+	import { Book, Email, Folder, Home, Menu, User } from 'carbon-icons-svelte';
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
 </script>
 
 <div class="right-menu">
@@ -8,6 +10,13 @@
 		<a href="#"><Home size={24} color="#f59e0b" /></a>
 		<a href="#"><User size={24} color="#f59e0b" /></a>
 		<a href="#"><Folder size={24} color="#f59e0b" /></a>
+		<a href="#" on:click={() => dispatch('changeSection', 'work')}
+			><Folder size={24} color="#f59e0b" /></a
+		>
+		<a href="#" on:click={() => dispatch('changeSection', 'education')}
+			><Book size={24} color="#f59e0b" /></a
+		>
+
 		<a href="#"><Email size={24} color="#f59e0b" /></a>
 	</div>
 	<Button icon={Menu} kind="ghost" class="menu-button" />
@@ -33,7 +42,17 @@
 	.menu-items {
 		display: flex;
 		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		gap: 24px;
+		flex: 1;
+	}
+
+	.menu-items a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
 	}
 
 	.menu-button {
