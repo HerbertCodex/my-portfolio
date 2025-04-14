@@ -62,7 +62,7 @@
 		</div>
 
 		<!-- Download CV -->
-		<Button label="DOWNLOAD CV" href="/cv-rayan.pdf" />
+		<Button label="DOWNLOAD CV" href="#" />
 	</div>
 </aside>
 
