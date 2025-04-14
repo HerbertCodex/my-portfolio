@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { Column, Grid, Row } from 'carbon-components-svelte';
 	import DownloadButton from '../ui/Button.svelte';
 
@@ -6,6 +7,7 @@
 	export let title: string;
 	export let description: string;
 	export let imageUrl: string = 'https://via.placeholder.com/300x400';
+	const cvPath = `${base}/files/pdf/CV_Donatien_KOFFI.pdf`;
 </script>
 
 <section class="hero-section">
@@ -17,7 +19,7 @@
 						<h1 class="name">{name}</h1>
 						<h2 class="title">{title}</h2>
 						<p class="description">{description}</p>
-						<DownloadButton label="HIRE ME" href="#" />
+						<DownloadButton label="HIRE ME" href={cvPath} />
 					</div>
 				</Column>
 				<Column sm={4} md={4} lg={6}>
