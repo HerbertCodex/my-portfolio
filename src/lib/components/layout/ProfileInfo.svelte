@@ -4,36 +4,50 @@
 	export let highlight: boolean = false;
 </script>
 
-<div class="info-line">
-	<span class="label">{label}:</span>
-	<span class="value {highlight ? 'highlight' : ''}">{value}</span>
+<div class="profile-info">
+	<span class="label">{label}</span>
+	<span class="value" class:neon={highlight}>{value}</span>
 </div>
 
 <style>
-	.info-line {
+	.profile-info {
 		display: flex;
-		align-items: center;
 		justify-content: space-between;
-		font-size: 0.875rem;
-		margin-bottom: 6px;
+		align-items: center;
+		padding: 8px 0;
+		border-bottom: 1px solid #e5e7eb;
 	}
 
 	.label {
-		background: #f59e0b;
-		color: #ffffff;
-		padding: 2px 6px;
-		border-radius: 4px;
-		font-weight: 600;
-		min-width: 90px;
-		display: inline-block;
+		color: #64748b;
+		font-size: 0.9rem;
 	}
 
 	.value {
-		color: rgb(0, 0, 0);
+		color: #1f2937;
+		font-weight: 500;
+		padding: 4px 8px;
+		border-radius: 4px;
 	}
 
-	.value.highlight {
-		color: #10b981;
-		font-weight: 600;
+	@keyframes pulse-border {
+		0% {
+			border: 2px solid rgba(245, 158, 11, 0.8);
+			box-shadow: 0 0 5px rgba(245, 158, 11, 0.8);
+		}
+		50% {
+			border: 2px solid rgba(245, 158, 11, 0.8);
+			box-shadow: 0 0 150px rgba(245, 158, 11, 0.8);
+		}
+		100% {
+			border: 2px solid rgba(245, 158, 11, 0.8);
+			box-shadow: 0 0 1px rgba(245, 158, 11, 0.8);
+		}
+	}
+
+	.neon {
+		color: #22c55e;
+		font-weight: 500;
+		animation: pulse-border 2s infinite;
 	}
 </style>

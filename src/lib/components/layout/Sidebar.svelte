@@ -1,6 +1,5 @@
 <script>
-	export let profileImageUrl = 'https://via.placeholder.com/150';
-
+	import { base } from '$app/paths';
 	import LogoFacebook from 'carbon-icons-svelte/lib/LogoFacebook.svelte';
 	import LogoInstagram from 'carbon-icons-svelte/lib/LogoInstagram.svelte';
 	import LogoLinkedin from 'carbon-icons-svelte/lib/LogoLinkedin.svelte';
@@ -9,81 +8,97 @@
 
 	import ProfileInfo from '$lib/components/layout/ProfileInfo.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
-	import ExtraSkill from '$lib/components/ui/ExtraSkill.svelte';
 	import ProgressBar from '$lib/components/ui/ProgressBar.svelte';
+	import Skill from '$lib/components/ui/Skill.svelte';
+
+	export let profileImageUrl = 'https://via.placeholder.com/150';
+	const cvPath = `${base}/files/pdf/CV_Donatien_KOFFI.pdf`;
 </script>
 
 <aside class="sidebar">
-	<div class="sidebar-inner">
-		<!-- Profile Image -->
-		<img src={profileImageUrl} alt="Profile" class="profile-img" />
+	<div class="sidebar-content">
+		<div class="sidebar-inner">
+			<!-- Profile Image -->
+			<img src={profileImageUrl} alt="Profile" class="profile-img" />
 
-		<!-- Social icons -->
-		<div class="socials">
-			<a href="https://www.linkedin.com/in/donatien-koffi/"><LogoFacebook /></a>
-			<a href="https://www.linkedin.com/in/donatien-koffi/"><LogoTwitter /></a>
-			<a href="https://www.linkedin.com/in/donatien-koffi/"><LogoLinkedin /></a>
-			<a href="https://www.linkedin.com/in/donatien-koffi/"><LogoYoutube /></a>
-			<a href="https://www.linkedin.com/in/donatien-koffi/"><LogoInstagram /></a>
+			<!-- Social icons -->
+			<div class="socials">
+				<a href="https://www.linkedin.com/in/donatien-koffi/"><LogoFacebook /></a>
+				<a href="https://www.linkedin.com/in/donatien-koffi/"><LogoTwitter /></a>
+				<a href="https://www.linkedin.com/in/donatien-koffi/"><LogoLinkedin /></a>
+				<a href="https://www.linkedin.com/in/donatien-koffi/"><LogoYoutube /></a>
+				<a href="https://www.linkedin.com/in/donatien-koffi/"><LogoInstagram /></a>
+			</div>
+
+			<!-- Infos personnelles -->
+			<div class="info-box">
+				<ProfileInfo label="Mobilité" value="Toute la France" />
+				<ProfileInfo label="Résidence" value="Rennes" />
+				<ProfileInfo label="Téléphone" value="+33 743307711" />
+				<ProfileInfo label="Status" value="Disponible" highlight={true} />
+			</div>
+
+			<!-- Langues -->
+			<div class="section">
+				<h4>Languages</h4>
+				<ProgressBar label="Français" value={100} />
+				<ProgressBar label="Anglais" value={40} />
+			</div>
+
+			<span class="divider"></span>
+
+			<!-- Skills -->
+			<div class="section">
+				<h4>Skills</h4>
+				<ProgressBar label="HTML" value={90} />
+				<ProgressBar label="CSS" value={85} />
+				<ProgressBar label="JS" value={80} />
+				<ProgressBar label="PHP" value={75} />
+				<ProgressBar label="WordPress" value={85} />
+			</div>
+
+			<div class="section">
+				<div class="divider">
+					<h4>Soft Skills</h4>
+				</div>
+				<Skill label="Rigueur et capacité d'analyse" icon="🎯" />
+				<Skill label="Esprit d'équipe et communication" icon="👥" />
+				<Skill label="Adaptabilité et autonomie" icon="🔄" />
+				<Skill label="Curiosité et veille technologique" icon="🔍" />
+			</div>
+
+			<!-- Download CV -->
+			<Button label="TELECHARGER MON CV" href={cvPath} />
 		</div>
-
-		<!-- Infos personnelles -->
-		<div class="info-box">
-			<ProfileInfo label="Mobilité" value="Toute la France" />
-			<ProfileInfo label="Residence" value="Rennes" />
-			<ProfileInfo label="Freelance" value="Available" highlight={true} />
-			<ProfileInfo label="Address" value="Dhaka, Bangladesh" />
-		</div>
-
-		<!-- Langues -->
-		<div class="section">
-			<h4>Languages</h4>
-			<ProgressBar label="Français" value={100} />
-			<ProgressBar label="Anglais" value={40} />
-		</div>
-
-		<!-- Skills -->
-		<div class="section">
-			<h4>Skills</h4>
-			<ProgressBar label="HTML" value={90} />
-			<ProgressBar label="CSS" value={85} />
-			<ProgressBar label="JS" value={80} />
-			<ProgressBar label="PHP" value={75} />
-			<ProgressBar label="WordPress" value={85} />
-		</div>
-
-		<!-- Extra skills -->
-		<div class="section">
-			<h4>Extra Skills</h4>
-			<ExtraSkill label="Bootstrap, Materialize" icon="🎨" />
-			<ExtraSkill label="Stylus, Sass, Less" icon="🎯" />
-			<ExtraSkill label="Gulp, Webpack, Grunt" icon="⚙️" />
-			<ExtraSkill label="Git Knowledge" icon="🔧" />
-		</div>
-
-		<!-- Download CV -->
-		<Button label="DOWNLOAD CV" href="#" />
 	</div>
 </aside>
 
 <style>
+	.divider {
+		font-size: 0.75rem;
+		color: #6b7280;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		margin: 16px 0 8px;
+		padding-top: 16px;
+		border-top: 1px solid #e5e7eb;
+		font-weight: 600;
+	}
 	.sidebar {
-		overflow-y: auto;
-		flex-shrink: 0;
 		width: 270px;
-		background: #ffffff;
-		border-right: 3px solid #f59e0b;
-		height: 100dvh;
 		position: fixed;
 		top: 0;
 		left: 0;
+		height: 100vh;
+		background: #ffffff;
+		border-right: 3px solid #f59e0b;
+		z-index: 10;
+	}
+
+	.sidebar-content {
+		height: 100%;
+		overflow-y: auto;
 		padding: 20px;
-		box-shadow: 2px 0 8px rgba(0, 0, 0, 0.03);
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		transition: all 0.3s ease;
-		scrollbar-gutter: stable;
 		scrollbar-width: thin;
 		scrollbar-color: #f59e0b transparent;
 		scroll-behavior: smooth;
@@ -94,8 +109,7 @@
 		display: flex;
 		flex-direction: column;
 		max-width: 100%;
-		flex-grow: 1;
-		justify-content: flex-start;
+		padding-bottom: 20px;
 	}
 
 	.profile-img {
@@ -149,12 +163,14 @@
 
 	.sidebar::-webkit-scrollbar-track {
 		background: transparent;
+		border-radius: 4px;
 	}
 
 	.sidebar::-webkit-scrollbar-thumb {
 		background-color: #f59e0b;
 		border-radius: 4px;
-		transition: background-color 0.3s ease;
+		border: 2px solid transparent;
+		background-clip: padding-box;
 	}
 
 	.sidebar::-webkit-scrollbar-thumb:hover {
@@ -168,10 +184,11 @@
 			height: auto;
 			border-right: none;
 			border-bottom: 3px solid #f59e0b;
-			flex-direction: column;
-			align-items: center;
+		}
+
+		.sidebar-content {
 			overflow-y: visible;
-			padding: 20px 16px;
+			height: auto;
 		}
 
 		.sidebar-inner {
