@@ -1,13 +1,25 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import Button from '$lib/components/ui/Button.svelte';
 	import { Column, Grid, Row } from 'carbon-components-svelte';
-	import DownloadButton from '../ui/Button.svelte';
 
 	export let name: string;
 	export let title: string;
 	export let description: string;
 	export let imageUrl: string = 'https://via.placeholder.com/300x400';
+	export const circleColor: string = '#f59e0b';
+
 	const cvPath = `${base}/files/pdf/CV_Donatien_KOFFI.pdf`;
+
+	function handleDecorClick(event: MouseEvent) {
+		const element = event.target as HTMLElement;
+		const colors = ['#f59e0b', '#10b981', '#3b82f6', '#ef4444', '#8b5cf6'];
+		const randomColor = colors[Math.floor(Math.random() * colors.length)];
+		element.style.background = randomColor;
+		if (element.classList.contains('triangle')) {
+			element.style.borderBottomColor = randomColor;
+		}
+	}
 </script>
 
 <section class="hero-section">
@@ -19,25 +31,29 @@
 						<h1 class="name">{name}</h1>
 						<h2 class="title">{title}</h2>
 						<p class="description">{description}</p>
-						<DownloadButton label="HIRE ME" href={cvPath} />
+						<Button label="HIRE ME" href={cvPath} />
 					</div>
 				</Column>
 				<Column sm={4} md={4} lg={6}>
 					<div class="image-container">
-						<img src={imageUrl} alt="Profile" class="profile-img" />
+						<img
+							src={imageUrl}
+							alt="Profile image of {name}"
+							class="profile-img"
+							on:error={() => (imageUrl = '/fallback-image.jpg')}
+						/>
 					</div>
 				</Column>
 			</Row>
 		</Grid>
 	</div>
-	<!-- Décorations -->
-	<div class="decorative-elements">
-		<div class="circle-1"></div>
-		<div class="circle-2"></div>
-		<div class="circle-3"></div>
-		<div class="square-1"></div>
-		<div class="square-2"></div>
-		<div class="triangle"></div>
+	<div class="decorative-elements" aria-hidden="true">
+		<div class="circle-1" on:click={handleDecorClick}></div>
+		<div class="circle-2" on:click={handleDecorClick}></div>
+		<div class="circle-3" on:click={handleDecorClick}></div>
+		<div class="square-1" on:click={handleDecorClick}></div>
+		<div class="square-2" on:click={handleDecorClick}></div>
+		<div class="triangle" on:click={handleDecorClick}></div>
 	</div>
 </section>
 
@@ -76,18 +92,9 @@
 
 	.description {
 		font-size: 1rem;
-		color: #4b5563;
+		color: #374151;
 		line-height: 1.6;
 		margin-bottom: 24px;
-	}
-
-	.hire-button {
-		background-color: #f59e0b !important;
-		color: white !important;
-		border: none !important;
-		border-radius: 4px !important;
-		padding: 10px 20px !important;
-		font-weight: 600;
 	}
 
 	.image-container {
@@ -104,7 +111,8 @@
 		object-fit: cover;
 		border-radius: 12px;
 	}
-	/* Flottement générique */
+
+	/* Animations variées */
 	@keyframes float {
 		0% {
 			transform: translateY(0) translateX(0);
@@ -114,6 +122,64 @@
 		}
 		100% {
 			transform: translateY(0) translateX(0);
+		}
+	}
+
+	@keyframes floatSlow {
+		0% {
+			transform: translateY(0) rotate(0deg);
+		}
+		50% {
+			transform: translateY(-10px) rotate(5deg);
+		}
+		100% {
+			transform: translateY(0) rotate(0deg);
+		}
+	}
+
+	@keyframes floatFast {
+		0% {
+			transform: translateX(0) rotate(45deg);
+		}
+		50% {
+			transform: translateX(8px) rotate(50deg);
+		}
+		100% {
+			transform: translateX(0) rotate(45deg);
+		}
+	}
+
+	@keyframes pulse {
+		0% {
+			transform: scale(1);
+			opacity: 0.7;
+		}
+		50% {
+			transform: scale(1.3);
+			opacity: 1;
+		}
+		100% {
+			transform: scale(1);
+			opacity: 0.7;
+		}
+	}
+
+	@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	@keyframes bounce {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-20px);
 		}
 	}
 
@@ -127,16 +193,14 @@
 		z-index: 0;
 	}
 
-	/* Comportement de base pour tous */
 	.decorative-elements div {
-		animation: float 6s ease-in-out infinite;
+		pointer-events: auto;
 		transition:
 			transform 0.3s ease,
 			box-shadow 0.3s ease;
 		cursor: pointer;
 	}
 
-	/* ✅ Glow spécifique par couleur */
 	.circle-1 {
 		top: 20px;
 		left: 20px;
@@ -146,6 +210,7 @@
 		border-radius: 50%;
 		position: absolute;
 		box-shadow: 0 0 6px rgba(245, 158, 11, 0.6);
+		animation: pulse 5s ease-in-out infinite;
 	}
 	.circle-1:hover {
 		transform: scale(1.2);
@@ -161,6 +226,7 @@
 		border-radius: 50%;
 		position: absolute;
 		box-shadow: 0 0 6px rgba(16, 185, 129, 0.5);
+		animation: floatSlow 8s ease-in-out infinite;
 	}
 	.circle-2:hover {
 		transform: scale(1.2);
@@ -176,6 +242,7 @@
 		border-radius: 50%;
 		position: absolute;
 		box-shadow: 0 0 5px rgba(16, 185, 129, 0.4);
+		animation: bounce 4s ease-in-out infinite;
 	}
 	.circle-3:hover {
 		transform: scale(1.2);
@@ -191,6 +258,7 @@
 		transform: rotate(45deg);
 		position: absolute;
 		box-shadow: 0 0 6px rgba(245, 158, 11, 0.5);
+		animation: spin 10s linear infinite;
 	}
 	.square-1:hover {
 		transform: scale(1.2) rotate(45deg);
@@ -206,6 +274,7 @@
 		transform: rotate(45deg);
 		position: absolute;
 		box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
+		animation: floatFast 7s ease-in-out infinite;
 	}
 	.square-2:hover {
 		transform: scale(1.2) rotate(45deg);
@@ -221,10 +290,30 @@
 		border-right: 10px solid transparent;
 		border-bottom: 10px solid #ef4444;
 		position: absolute;
-		box-shadow: 0 0 5px rgb(255, 255, 255);
+		box-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
+		animation: pulse 6s ease-in-out infinite;
 	}
 	.triangle:hover {
 		transform: scale(1.2);
 		box-shadow: 0 0 12px rgba(239, 68, 68, 0.9);
+	}
+
+	@media (max-width: 640px) {
+		.circle-1,
+		.square-1 {
+			display: none;
+		}
+		.circle-2,
+		.circle-3,
+		.square-2,
+		.triangle {
+			width: 10px;
+			height: 10px;
+		}
+		.triangle {
+			border-left: 8px solid transparent;
+			border-right: 8px solid transparent;
+			border-bottom: 8px solid #ef4444;
+		}
 	}
 </style>
