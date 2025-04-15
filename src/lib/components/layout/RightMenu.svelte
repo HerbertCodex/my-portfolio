@@ -1,23 +1,13 @@
 <script>
 	import { page } from '$app/stores';
 	import { Button } from 'carbon-components-svelte';
-	import { Book, Email, Folder, Home, Menu, User } from 'carbon-icons-svelte';
+	import { Book, Folder, Menu } from 'carbon-icons-svelte';
 
 	$: currentHash = $page.url.hash || '#work';
 </script>
 
 <div class="right-menu">
 	<div class="menu-items">
-		<a href="#home" class:active={currentHash === '#home'}>
-			<div class="icon-wrapper">
-				<Home size={24} color={currentHash === '#home' ? '#f59e0b' : '#64748b'} />
-			</div>
-		</a>
-		<a href="#about" class:active={currentHash === '#about'}>
-			<div class="icon-wrapper">
-				<User size={24} color={currentHash === '#about' ? '#f59e0b' : '#64748b'} />
-			</div>
-		</a>
 		<a href="#work" class:active={currentHash === '#work'}>
 			<div class="icon-wrapper">
 				<Folder size={24} color={currentHash === '#work' ? '#f59e0b' : '#64748b'} />
@@ -26,11 +16,6 @@
 		<a href="#education" class:active={currentHash === '#education'}>
 			<div class="icon-wrapper">
 				<Book size={24} color={currentHash === '#education' ? '#f59e0b' : '#64748b'} />
-			</div>
-		</a>
-		<a href="#contact" class:active={currentHash === '#contact'}>
-			<div class="icon-wrapper">
-				<Email size={24} color={currentHash === '#contact' ? '#f59e0b' : '#64748b'} />
 			</div>
 		</a>
 	</div>

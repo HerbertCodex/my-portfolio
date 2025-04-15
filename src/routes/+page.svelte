@@ -1,12 +1,11 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import HeroSection from '$lib/components/layout/HeroSection.svelte';
 	import RightMenu from '$lib/components/layout/RightMenu.svelte';
 	import Sidebar from '$lib/components/layout/Sidebar.svelte';
-	import TimelineView from '$lib/components/layout/TimelineView.svelte';
 	import 'carbon-components-svelte/css/all.css';
-	import { onMount } from 'svelte';
+	import Education from './education/+page.svelte';
+	import Work from './work/+page.svelte';
 
 	export let name: string = 'DONATIEN KOFFI';
 	export let title: string = 'ARTISAN DEVELOPER';
@@ -16,12 +15,6 @@
 	export let profileImageUrl: string = 'https://placehold.co/50';
 
 	$: activeSection = $page.url.hash.slice(1) || 'work';
-
-	onMount(() => {
-		if (!$page.url.hash) {
-			goto('#work', { replaceState: true });
-		}
-	});
 </script>
 
 <div class="app-container">
@@ -29,11 +22,14 @@
 		<Sidebar {profileImageUrl} />
 		<div class="main-content">
 			<HeroSection {name} {title} {description} {imageUrl} />
-			{#if activeSection === 'work'}
-				<TimelineView section="work" />
-			{:else if activeSection === 'education'}
-				<TimelineView section="education" />
-			{/if}
+			<div class="sections-container">
+				<div id="work" class="section" class:active={activeSection === 'work'}>
+					<Work />
+				</div>
+				<div id="education" class="section" class:active={activeSection === 'education'}>
+					<Education />
+				</div>
+			</div>
 		</div>
 		<RightMenu />
 	</div>
@@ -70,6 +66,19 @@
 	.main-content::-webkit-scrollbar {
 		width: 0;
 		display: none;
+	}
+
+	.sections-container {
+		width: 100%;
+	}
+
+	.section {
+		display: none;
+		width: 100%;
+	}
+
+	.section.active {
+		display: block;
 	}
 
 	@media (max-width: 768px) {
