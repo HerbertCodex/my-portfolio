@@ -164,6 +164,12 @@
 			isPrimary: true,
 			category: 'Modeling & Design'
 		},
+		{
+			name: 'Api Design',
+			logo: `${base}/logos/tools/api-design.png`,
+			isPrimary: true,
+			category: 'Modeling & Design'
+		},
 
 		// IDEs & Editors
 		{
