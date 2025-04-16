@@ -32,8 +32,8 @@
 
 <style>
 	.timeline-item {
-		padding: 1rem 0;
-		border-bottom: 1px solid #f3f4f6;
+		padding: 1rem;
+		width: 100%;
 	}
 
 	.card-content {
@@ -44,12 +44,16 @@
 		transition:
 			transform 0.2s ease,
 			box-shadow 0.2s ease;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.header {
 		background: #f8fafc;
 		padding: 1rem;
 		border-bottom: 1px solid #e2e8f0;
+		width: 100%;
 	}
 
 	.badge-container {
@@ -58,6 +62,8 @@
 
 	.body {
 		padding: 1rem;
+		flex: 1;
+		width: 100%;
 	}
 
 	.title {
@@ -108,14 +114,11 @@
 
 	@media (min-width: 768px) {
 		.timeline-item {
-			display: flex;
-			justify-content: space-between;
-			gap: 1.5rem;
+			padding: 1rem 0;
 		}
 
 		.card-content {
-			display: flex;
-			width: 100%;
+			flex-direction: row;
 		}
 
 		.header {

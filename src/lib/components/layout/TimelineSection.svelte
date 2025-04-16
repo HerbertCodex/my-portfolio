@@ -15,7 +15,6 @@
 	.timeline-section {
 		margin-bottom: 3rem;
 		margin-top: 3rem;
-		max-width: 79%;
 		width: 100%;
 	}
 
