@@ -14,39 +14,57 @@
 			name: 'TypeScript',
 			logo: `${base}/logos/languages/typescript.svg`,
 			isPrimary: true,
-			category: 'Languages & Frameworks'
+			category: 'Languages'
+		},
+		{
+			name: 'Java',
+			logo: `${base}/logos/languages/java.gif`,
+			isPrimary: true,
+			category: 'Languages'
+		},
+		{
+			name: 'Kotlin',
+			logo: `${base}/logos/languages/kotlin.svg`,
+			isPrimary: true,
+			category: 'Languages'
 		},
 		{
 			name: 'Python',
 			logo: `${base}/logos/languages/python.gif`,
 			isPrimary: false,
-			category: 'Languages & Frameworks'
+			category: 'Languages'
 		},
 		{
 			name: 'Css3',
 			logo: `${base}/logos/languages/css3.svg`,
 			isPrimary: true,
-			category: 'Languages & Frameworks'
+			category: 'Languages'
 		},
 		{
 			name: 'Html5',
 			logo: `${base}/logos/languages/html5.svg`,
 			isPrimary: true,
-			category: 'Languages & Frameworks'
+			category: 'Languages'
 		},
 
 		// Frontend
 		{
+			name: 'Angular',
+			logo: `${base}/logos/frameworks/angular.svg`,
+			isPrimary: true,
+			category: 'Frameworks Frontend'
+		},
+		{
 			name: 'Svelte',
 			logo: `${base}/logos/frameworks/svelte.svg`,
 			isPrimary: true,
-			category: 'Frontend'
+			category: 'Frameworks Frontend'
 		},
 		{
 			name: 'Next.js',
 			logo: `${base}/logos/frameworks/nextjs.svg`,
 			isPrimary: false,
-			category: 'Frontend'
+			category: 'Frameworks Frontend'
 		},
 
 		// Backend
@@ -54,31 +72,43 @@
 			name: 'NestJS',
 			logo: `${base}/logos/frameworks/nestjs.svg`,
 			isPrimary: true,
-			category: 'Backend'
+			category: 'Frameworks Backend'
 		},
 		{
 			name: 'Express.js',
 			logo: `${base}/logos/frameworks/express-js.svg`,
 			isPrimary: true,
-			category: 'Backend'
+			category: 'Frameworks Backend'
 		},
 		{
 			name: 'fastify',
 			logo: `${base}/logos/frameworks/fastify.png`,
 			isPrimary: true,
-			category: 'Backend'
+			category: 'Frameworks Backend'
+		},
+		{
+			name: 'Encore.ts',
+			logo: `${base}/logos/frameworks/encore-ts.png`,
+			isPrimary: true,
+			category: 'Frameworks Backend'
 		},
 		{
 			name: 'Node.js',
 			logo: `${base}/logos/frameworks/nodejs.svg`,
 			isPrimary: true,
-			category: 'Backend'
+			category: 'Frameworks Backend'
+		},
+		{
+			name: 'Flask',
+			logo: `${base}/logos/frameworks/flask.svg`,
+			isPrimary: false,
+			category: 'Frameworks Backend'
 		},
 		{
 			name: 'Spring Boot',
 			logo: `${base}/logos/frameworks/spring-boot.svg`,
 			isPrimary: false,
-			category: 'Backend'
+			category: 'Frameworks Backend'
 		},
 
 		// Databases
@@ -86,25 +116,31 @@
 			name: 'PostgreSQL',
 			logo: `${base}/logos/languages/postgresql.svg`,
 			isPrimary: true,
-			category: 'Databases'
+			category: 'Databases SQL'
 		},
 		{
 			name: 'MySQL',
 			logo: `${base}/logos/languages/sql.png`,
 			isPrimary: false,
-			category: 'Databases'
+			category: 'Databases SQL'
 		},
 		{
 			name: 'MongoDB',
 			logo: `${base}/logos/languages/mongodb.svg`,
 			isPrimary: false,
-			category: 'Databases'
+			category: 'Databases NoSQL'
 		},
 
 		// DevOps & Tools
 		{
-			name: 'Git',
-			logo: `${base}/logos/tools/git.svg`,
+			name: 'Github Actions',
+			logo: `${base}/logos/tools/github.gif`,
+			isPrimary: true,
+			category: 'DevOps & Tools'
+		},
+		{
+			name: 'GitLab CI/CD',
+			logo: `${base}/logos/tools/gitlab.svg`,
 			isPrimary: true,
 			category: 'DevOps & Tools'
 		},
@@ -128,14 +164,20 @@
 			isPrimary: true,
 			category: 'Modeling & Design'
 		},
-		{
-			name: 'API Design',
-			logo: `${base}/logos/tools/api.png`,
-			isPrimary: true,
-			category: 'Modeling & Design'
-		},
 
 		// IDEs & Editors
+		{
+			name: 'VS Code',
+			logo: `${base}/logos/tools/visual-studio-code.svg`,
+			isPrimary: true,
+			category: 'IDEs & Editors'
+		},
+		{
+			name: 'IntelliJ IDEA',
+			logo: `${base}/logos/tools/intellij-idea.svg`,
+			isPrimary: true,
+			category: 'IDEs & Editors'
+		},
 		{
 			name: 'Android Studio',
 			logo: `${base}/logos/tools/android-studio.svg`,
@@ -150,6 +192,18 @@
 		},
 
 		// AI Tools
+		{
+			name: 'GitHub Copilot',
+			logo: `${base}/logos/tools/github-copilot.gif`,
+			isPrimary: true,
+			category: 'AI Tools'
+		},
+		{
+			name: 'ChatGPT',
+			logo: `${base}/logos/tools/chatgpt.svg`,
+			isPrimary: true,
+			category: 'AI Tools'
+		},
 		{
 			name: 'Gemini',
 			logo: `${base}/logos/tools/bard.svg`,
@@ -178,8 +232,7 @@
 
 <div class="technical-skills-container">
 	<div class="content-wrapper">
-		<h2 class="main-title">Technical Skills</h2>
-		<p class="subtitle">Technologies & Outils</p>
+		<h2 class="main-title">Technologies & Outils</h2>
 
 		{#each Object.entries(groupedSkills) as [category, categorySkills]}
 			<div class="category-section">
@@ -218,13 +271,6 @@
 		font-weight: 700;
 		color: #1f2937;
 		margin-bottom: 0.5rem;
-	}
-
-	.subtitle {
-		text-align: center;
-		font-size: 1.1rem;
-		color: #6b7280;
-		margin-bottom: 3rem;
 	}
 
 	.category-section {
@@ -297,15 +343,6 @@
 		}
 	}
 
-	.skill-level {
-		font-size: 0.875rem;
-		color: var(--level-color);
-		padding: 0.25rem 0.5rem;
-		border-radius: 4px;
-		background-color: color-mix(in srgb, var(--level-color) 10%, white);
-		align-self: flex-start;
-	}
-
 	@media (max-width: 640px) {
 		.technical-skills-container {
 			padding: 1rem 0.5rem;
@@ -321,11 +358,6 @@
 
 		.main-title {
 			font-size: 1.75rem;
-		}
-
-		.subtitle {
-			font-size: 1rem;
-			margin-bottom: 2rem;
 		}
 	}
 </style>

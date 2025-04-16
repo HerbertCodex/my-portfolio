@@ -5,7 +5,7 @@
 </script>
 
 <div class="timeline-container">
-	<TimelineSection title="Work History" subtitle="Expériences professionnelles">
+	<TimelineSection title="Expériences Professionnelles">
 		<TimelineItem
 			title="Développeur BackEnd"
 			subtitle="Everest Consulting"

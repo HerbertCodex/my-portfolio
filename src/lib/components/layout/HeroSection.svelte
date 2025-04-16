@@ -31,7 +31,7 @@
 						<h1 class="name">{name}</h1>
 						<h2 class="title">{title}</h2>
 						<p class="description">{description}</p>
-						<Button label="HIRE ME" href={cvPath} />
+						<Button label="TELECHARGER MON CV" href={cvPath} />
 					</div>
 				</Column>
 				<Column sm={4} md={4} lg={6}>
