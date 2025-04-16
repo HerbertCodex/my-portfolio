@@ -12,10 +12,11 @@
 	import Skill from '$lib/components/ui/Skill.svelte';
 
 	export let profileImageUrl = 'https://via.placeholder.com/150';
+	export let isMobile = false;
 	const cvPath = `${base}/files/pdf/CV_Donatien_KOFFI.pdf`;
 </script>
 
-<aside class="sidebar">
+<aside class="sidebar" class:mobile={isMobile}>
 	<div class="sidebar-content">
 		<div class="sidebar-inner">
 			<!-- Profile Image -->
@@ -83,6 +84,14 @@
 		background: #ffffff;
 		border-right: 3px solid #f59e0b;
 		z-index: 10;
+	}
+
+	/* Ajoutez ces styles pour le mobile */
+	.sidebar.mobile {
+		position: static;
+		width: 100%;
+		height: 100%;
+		border-right: none;
 	}
 
 	.sidebar-content {
@@ -167,34 +176,11 @@
 		background-color: #d97706;
 	}
 
-	@media (max-width: 1024px) {
-		.sidebar {
-			position: relative;
-			width: 100%;
-			height: auto;
-			border-right: none;
-			border-bottom: 3px solid #f59e0b;
-		}
-
+	@media (max-width: 768px) {
 		.sidebar-content {
-			overflow-y: visible;
-			height: auto;
-		}
-
-		.sidebar-inner {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-		}
-
-		.profile-img {
-			margin-bottom: 12px;
-		}
-
-		.section,
-		.info-box {
-			width: 100%;
-			max-width: 600px;
+			padding: 15px;
+			height: 100vh;
+			overflow-y: auto;
 		}
 	}
 </style>
