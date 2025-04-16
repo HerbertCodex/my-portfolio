@@ -74,15 +74,13 @@
 		<div class="main-content" class:mobile={isMobile}>
 			<HeroSection {name} {title} {description} {imageUrl} />
 			<div class="sections-container">
-				<div id="work" class="section" class:active={activeSection === 'work'}>
+				{#if activeSection === 'work'}
 					<Work />
-				</div>
-				<div id="education" class="section" class:active={activeSection === 'education'}>
+				{:else if activeSection === 'education'}
 					<Education />
-				</div>
-				<div id="hard-skills" class="section" class:active={activeSection === 'hard-skills'}>
+				{:else if activeSection === 'hard-skills'}
 					<TechnicalSkills />
-				</div>
+				{/if}
 			</div>
 		</div>
 
@@ -241,10 +239,16 @@
 		font-size: 0.75rem;
 	}
 
+	.sections-container {
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+	}
+
 	@media (max-width: 768px) {
-		.main-content {
-			padding-left: 0;
-			padding-right: 0;
+		.sections-container {
+			padding: 1rem 0.5rem;
 		}
 	}
 </style>
