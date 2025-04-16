@@ -47,16 +47,6 @@
 
 			<span class="divider"></span>
 
-			<!-- Skills -->
-			<div class="section">
-				<h4>Skills</h4>
-				<ProgressBar label="HTML" value={90} />
-				<ProgressBar label="CSS" value={85} />
-				<ProgressBar label="JS" value={80} />
-				<ProgressBar label="PHP" value={75} />
-				<ProgressBar label="WordPress" value={85} />
-			</div>
-
 			<div class="section">
 				<div class="divider">
 					<h4>Soft Skills</h4>
