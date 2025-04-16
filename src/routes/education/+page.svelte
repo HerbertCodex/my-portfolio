@@ -18,7 +18,7 @@
 			subtitle="Licence Miage"
 			description="L’Université Félix-Houphouët-Boigny est une université ivoirienne située à Abidjan, dans le quartier de Cocody. Elle se distingue non seulement par son importance académique, mais aussi par les valeurs essentielles qui la guident. Celles-ci s’articulent autour d’un certain nombre de principes fondamentaux, parmi lesquels : le savoir, la rigueur, l’excellence, l’humilité, la solidarité et l’ouverture au monde."
 		>
-			<BadgeDate slot="badge" date="2021 - 2022" />
+			<BadgeDate slot="badge" date="2018 - 2021" />
 		</TimelineItem>
 	</TimelineSection>
 </div>

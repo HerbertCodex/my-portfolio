@@ -3,6 +3,7 @@
 	import HeroSection from '$lib/components/layout/HeroSection.svelte';
 	import RightMenu from '$lib/components/layout/RightMenu.svelte';
 	import Sidebar from '$lib/components/layout/Sidebar.svelte';
+	import TechnicalSkills from '$lib/components/layout/TechnicalSkills.svelte';
 	import 'carbon-components-svelte/css/all.css';
 	import Education from './education/+page.svelte';
 	import Work from './work/+page.svelte';
@@ -28,6 +29,9 @@
 				</div>
 				<div id="education" class="section" class:active={activeSection === 'education'}>
 					<Education />
+				</div>
+				<div id="hard-skills" class="section" class:active={activeSection === 'hard-skills'}>
+					<TechnicalSkills />
 				</div>
 			</div>
 		</div>

@@ -1,7 +1,10 @@
 <script>
 	import { page } from '$app/stores';
 	import { Button } from 'carbon-components-svelte';
-	import { Book, Folder, Menu } from 'carbon-icons-svelte';
+	import Book from 'carbon-icons-svelte/lib/Book.svelte';
+	import Menu from 'carbon-icons-svelte/lib/Menu.svelte';
+	import Portfolio from 'carbon-icons-svelte/lib/Portfolio.svelte';
+	import Result from 'carbon-icons-svelte/lib/Result.svelte';
 
 	$: currentHash = $page.url.hash || '#work';
 </script>
@@ -10,7 +13,12 @@
 	<div class="menu-items">
 		<a href="#work" class:active={currentHash === '#work'}>
 			<div class="icon-wrapper">
-				<Folder size={24} color={currentHash === '#work' ? '#f59e0b' : '#64748b'} />
+				<Portfolio size={24} color={currentHash === '#work' ? '#f59e0b' : '#64748b'} />
+			</div>
+		</a>
+		<a href="#hard-skills" class:active={currentHash === '#hard-skills'}>
+			<div class="icon-wrapper">
+				<Result size={24} color={currentHash === '#hard-skills' ? '#f59e0b' : '#64748b'} />
 			</div>
 		</a>
 		<a href="#education" class:active={currentHash === '#education'}>
