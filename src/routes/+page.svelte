@@ -136,7 +136,8 @@
 		-ms-overflow-style: none;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		align-items: stretch;
+		width: 100%;
 	}
 
 	.main-content.mobile {
