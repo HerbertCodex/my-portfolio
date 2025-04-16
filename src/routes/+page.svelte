@@ -242,13 +242,6 @@
 		font-size: 0.75rem;
 	}
 
-	.sections-container {
-		width: 100%;
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 2rem 1rem;
-	}
-
 	.section {
 		display: none;
 		width: 100%;
@@ -256,11 +249,5 @@
 
 	.section.active {
 		display: block;
-	}
-
-	@media (max-width: 768px) {
-		.sections-container {
-			padding: 1rem 0.5rem;
-		}
 	}
 </style>
