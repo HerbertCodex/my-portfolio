@@ -20,7 +20,7 @@
 	<div class="sidebar-content">
 		<div class="sidebar-inner">
 			<!-- Profile Image -->
-			<img src={profileImageUrl} alt="Profile" class="profile-img" />
+			<!-- <img src={profileImageUrl} alt="Profile" class="profile-img" /> -->
 
 			<!-- Social icons -->
 			<div class="socials">
