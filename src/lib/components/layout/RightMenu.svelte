@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import { Button } from 'carbon-components-svelte';
 	import Book from 'carbon-icons-svelte/lib/Book.svelte';
+	import Code from 'carbon-icons-svelte/lib/Code.svelte';
 	import Menu from 'carbon-icons-svelte/lib/Menu.svelte';
 	import Portfolio from 'carbon-icons-svelte/lib/Portfolio.svelte';
 	import Result from 'carbon-icons-svelte/lib/Result.svelte';
@@ -14,6 +15,11 @@
 		<a href="#work" class:active={currentHash === '#work'}>
 			<div class="icon-wrapper">
 				<Portfolio size={24} color={currentHash === '#work' ? '#f59e0b' : '#64748b'} />
+			</div>
+		</a>
+		<a href="#projects" class:active={currentHash === '#projects'}>
+			<div class="icon-wrapper">
+				<Code size={24} color={currentHash === '#projects' ? '#f59e0b' : '#64748b'} />
 			</div>
 		</a>
 		<a href="#hard-skills" class:active={currentHash === '#hard-skills'}>

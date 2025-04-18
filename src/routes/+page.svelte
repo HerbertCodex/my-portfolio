@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import HeroSection from '$lib/components/layout/HeroSection.svelte';
+	import ProjectSection from '$lib/components/layout/ProjectSection.svelte';
 	import RightMenu from '$lib/components/layout/RightMenu.svelte';
 	import Sidebar from '$lib/components/layout/Sidebar.svelte';
 	import TechnicalSkills from '$lib/components/layout/TechnicalSkills.svelte';
@@ -77,6 +78,9 @@
 				<div id="work" class="section" class:active={activeSection === 'work'}>
 					<Work />
 				</div>
+				<div id="projects" class="section" class:active={activeSection === 'projects'}>
+					<ProjectSection />
+				</div>
 				<div id="education" class="section" class:active={activeSection === 'education'}>
 					<Education />
 				</div>
@@ -97,6 +101,10 @@
 				<a href="#work" class:active={activeSection === 'work'}>
 					<span class="nav-icon">💼</span>
 					<span class="nav-text">Work</span>
+				</a>
+				<a href="#projects" class:active={activeSection === 'projects'}>
+					<span class="nav-icon">💻</span>
+					<span class="nav-text">Projects</span>
 				</a>
 				<a href="#hard-skills" class:active={activeSection === 'hard-skills'}>
 					<span class="nav-icon">💡</span>
@@ -227,6 +235,7 @@
 		text-decoration: none;
 		color: #64748b;
 		padding: 8px;
+		flex: 1;
 	}
 
 	.mobile-nav a.active {
