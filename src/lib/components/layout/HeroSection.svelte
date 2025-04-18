@@ -6,7 +6,6 @@
 	export let name: string;
 	export let title: string;
 	export let description: string;
-	export let imageUrl: string = 'https://via.placeholder.com/300x400';
 	export const circleColor: string = '#f59e0b';
 
 	const cvPath = `${base}/files/pdf/CV_Donatien_KOFFI.pdf`;
@@ -26,22 +25,16 @@
 	<div class="hero-wrapper">
 		<Grid>
 			<Row>
-				<Column sm={4} md={4} lg={6}>
+				<Column>
 					<div class="text-content">
-						<h1 class="name">{name}</h1>
-						<h2 class="title">{title}</h2>
-						<p class="description">{description}</p>
-						<Button label="TELECHARGER MON CV" href={cvPath} />
-					</div>
-				</Column>
-				<Column sm={4} md={4} lg={6}>
-					<div class="image-container">
-						<img
-							src={imageUrl}
-							alt="Profile image of {name}"
-							class="profile-img"
-							on:error={() => (imageUrl = '/fallback-image.jpg')}
-						/>
+						<div class="content-wrapper">
+							<h1 class="name">{name}</h1>
+							<h2 class="title">{title}</h2>
+							<p class="description">{description}</p>
+							<div class="button-wrapper">
+								<Button label="TELECHARGER MON CV" href={cvPath} />
+							</div>
+						</div>
 					</div>
 				</Column>
 			</Row>
@@ -64,6 +57,9 @@
 		position: relative;
 		z-index: 1;
 		flex-shrink: 0;
+		min-height: 80vh;
+		display: flex;
+		align-items: center;
 	}
 
 	.hero-wrapper {
@@ -74,42 +70,45 @@
 
 	.text-content {
 		padding: 20px;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+
+	.content-wrapper {
+		max-width: 800px;
+		text-align: center;
 	}
 
 	.name {
 		font-size: 2.5rem;
 		font-weight: 800;
 		color: #1f2937;
-		margin-bottom: 8px;
+		margin-bottom: 12px;
+		line-height: 1.2;
 	}
 
 	.title {
 		font-size: 1.25rem;
 		font-weight: 600;
 		color: #f59e0b;
-		margin-bottom: 16px;
+		margin-bottom: 20px;
+		line-height: 1.4;
 	}
 
 	.description {
-		font-size: 1rem;
+		font-size: 1.1rem;
 		color: #374151;
 		line-height: 1.6;
-		margin-bottom: 24px;
+		margin-bottom: 32px;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 600px;
 	}
 
-	.image-container {
+	.button-wrapper {
 		display: flex;
 		justify-content: center;
-		align-items: center;
-		height: 100%;
-	}
-
-	.profile-img {
-		max-width: 300px;
-		max-height: 400px;
-		width: 100%;
-		object-fit: cover;
-		border-radius: 12px;
 	}
 
 	/* Animations variées */
@@ -299,21 +298,25 @@
 	}
 
 	@media (max-width: 640px) {
-		.circle-1,
-		.square-1 {
-			display: none;
+		.hero-section {
+			padding: 20px;
+			min-height: 60vh;
 		}
-		.circle-2,
-		.circle-3,
-		.square-2,
-		.triangle {
-			width: 10px;
-			height: 10px;
+
+		.text-content {
+			padding: 16px;
 		}
-		.triangle {
-			border-left: 8px solid transparent;
-			border-right: 8px solid transparent;
-			border-bottom: 8px solid #ef4444;
+
+		.name {
+			font-size: 2rem;
+		}
+
+		.title {
+			font-size: 1.1rem;
+		}
+
+		.description {
+			font-size: 1rem;
 		}
 	}
 </style>

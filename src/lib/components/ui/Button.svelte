@@ -16,19 +16,19 @@
 
 <style>
 	.download-btn {
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		gap: 8px;
 		background-color: #f59e0b;
 		color: white;
 		font-weight: 600;
-		padding: 12px;
+		padding: 12px 24px;
 		border-radius: 6px;
 		text-decoration: none;
 		transition: background 0.3s ease;
 		font-size: 0.875rem;
-		width: 100%;
+		max-width: fit-content;
 	}
 
 	.download-btn:hover {
