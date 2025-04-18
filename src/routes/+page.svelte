@@ -73,7 +73,7 @@
 		{/if}
 
 		<div class="main-content" class:mobile={isMobile}>
-			<HeroSection {name} {title} {description} {imageUrl} />
+			<HeroSection {name} {title} {description} />
 			<div class="sections-container">
 				<div id="work" class="section" class:active={activeSection === 'work'}>
 					<Work />
