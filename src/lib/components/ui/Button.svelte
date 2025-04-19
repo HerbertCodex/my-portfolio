@@ -16,7 +16,7 @@
 
 <style>
 	.download-btn {
-		display: inline-flex;
+		display: flex;
 		align-items: center;
 		justify-content: center;
 		gap: 8px;
@@ -28,7 +28,7 @@
 		text-decoration: none;
 		transition: background 0.3s ease;
 		font-size: 0.875rem;
-		max-width: fit-content;
+		width: 100%;
 	}
 
 	.download-btn:hover {
