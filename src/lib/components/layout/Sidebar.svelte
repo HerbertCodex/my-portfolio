@@ -59,7 +59,7 @@
 			</div>
 
 			<!-- Download CV -->
-			<Button label="TELECHARGER MON CV" href={cvPath} />
+			<Button label="MON CV" href={cvPath} />
 		</div>
 	</div>
 </aside>

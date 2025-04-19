@@ -109,6 +109,9 @@
 	.button-wrapper {
 		display: flex;
 		justify-content: center;
+		width: 100%;
+		max-width: 400px; /* Limite la largeur maximale du bouton */
+		margin: 0 auto; /* Centre le bouton */
 	}
 
 	/* Animations variées */
